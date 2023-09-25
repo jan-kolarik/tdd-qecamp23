@@ -52,11 +52,11 @@
 				<p>Jan Kolárik</p>
             </div>
 			<div class="slides">
-				<section>
+				<section data-auto-animate>
 					<h2>Test Driven Development</h2>
 					<h4>Why? How? Wow!</h4>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h3>Motivation</h3>
 					<!-- Tell my story, how I started with TDD -->
 					<!-- What are the benefits I see -->
@@ -114,9 +114,205 @@
 						</div>
 					</section>
 				</section>
-				<section>
-					<h3>Designing a pub</h3>
+				<section data-auto-animate>
 					<!-- Introduce our example project, entities -->
+					<section data-auto-animate>
+						<h3>Designing a pub</h3>
+						<ul>
+							<li class="fragment fade-left">Beer 🍺</li>
+							<li class="fragment fade-left">Bill 📜</li>
+							<li class="fragment fade-left">Client 🧑</li>
+							<li class="fragment fade-left">Waiter 🤵</li>
+						</ul>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p data-fragment-index="1" class="fragment fade-left">Requirements:</p>
+								<ul>
+									<li data-fragment-index="2" class="fragment fade-left">Drinkable (at once)</li>
+									<li data-fragment-index="3" class="fragment fade-left">Check it's full</li>
+								</ul>
+								<div style="flex: 50%;">
+									<p data-fragment-index="5" class="fragment fade-left">Test list:</p>
+									<p data-fragment-index="6" class="fragment fade-left">⬜ New beer is full</p>
+									<p data-fragment-index="7" class="fragment fade-left">⬜ Drunk beer is empty</p>
+								</div>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-fragment-index="4" class="fragment fade-left" style="font-size: 18px; width: 100%;">
+									<code class="hljs language-csharp">
+interface IBeer 
+{
+	bool IsFull();
+	void Drink();
+}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: orange;">⬜ New beer is full</p>
+								<p>⬜ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre class="fragment fade-left" style="font-size: 18px; width: 100%;">
+									<code class="hljs language-csharp">
+[TestFixture]
+class BeerTest
+{
+	[Test]
+	public void BeerIsFullAfterCreation() {
+		Assert.IsTrue( new Beer().IsFull() );
+	}
+}
+									</code>
+								</pre>
+								<pre class="fragment fade-left" style="font-size: 18px; width: 100%;">
+									<code class="hljs language-csharp">
+class Beer : IBeer 
+{
+	public Beer() {}
+
+	public bool IsFull() {
+		throw new NotImplementedException();
+	}
+
+	public void Drink() {
+		throw new NotImplementedException();
+	}
+}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: red;">⬜ New beer is full</p>
+								<p>⬜ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre style="font-size: 18px; width: 100%;">
+									<code class="hljs language-csharp">
+[TestFixture]
+class BeerTest
+{
+	[Test]
+	public void BeerIsFullAfterCreation() {
+		Assert.IsTrue( new Beer().IsFull() );
+	}
+}
+									</code>
+								</pre>
+								<pre data-id="beer-impl-anim1" style="font-size: 18px; width: 100%;">
+									<code class="hljs language-csharp">
+class Beer : IBeer 
+{
+	public Beer() {}
+
+	public bool IsFull() {
+		throw new NotImplementedException();
+	}
+
+	public void Drink() {
+		throw new NotImplementedException();
+	}
+}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: red;">⬜ New beer is full</p>
+								<p>⬜ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre style="font-size: 18px; width: 100%;">
+									<code class="hljs language-csharp">
+[TestFixture]
+class BeerTest
+{
+	[Test]
+	public void BeerIsFullAfterCreation() {
+		Assert.IsTrue( new Beer().IsFull() );
+	}
+}
+									</code>
+								</pre>
+								<pre data-id="beer-impl-anim1" style="font-size: 18px; width: 100%;">
+									<code class="hljs language-csharp">
+class Beer : IBeer 
+{
+	public Beer() {}
+
+	public bool IsFull() {
+		return true;
+	}
+
+	public void Drink() {
+		throw new NotImplementedException();
+	}
+}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: green;">✅ New beer is full</p>
+								<p>⬜ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre style="font-size: 18px; width: 100%;">
+									<code class="hljs language-csharp">
+[TestFixture]
+class BeerTest
+{
+	[Test]
+	public void BeerIsFullAfterCreation() {
+		Assert.IsTrue( new Beer().IsFull() );
+	}
+}
+									</code>
+								</pre>
+								<pre style="font-size: 18px; width: 100%;">
+									<code class="hljs language-csharp">
+class Beer : IBeer 
+{
+	public Beer() {}
+
+	public bool IsFull() {
+		return true;
+	}
+
+	public void Drink() {
+		throw new NotImplementedException();
+	}
+}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
 				</section>
 				<section>
 					<h3>Beer, anyone?</h3>

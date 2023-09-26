@@ -9,3 +9,41 @@
     max-height: 280px !important;
     width: 520px !important;
 }
+
+.customer-iface-pre {
+    font-size: 16px !important; 
+    width: 400px !important;
+    max-height: 180px !important;
+}
+
+.customer-iface-code {
+    overflow-x: hidden !important;
+    max-height: 180px !important;
+    width: 400px !important;
+}
+
+.customer-test-pre {
+    font-size: 16px !important; 
+    width: 550px !important;
+    height: 180px !important;
+    max-height: 180px !important;
+}
+
+.customer-test-code {
+    overflow-x: hidden !important;
+    height: 180px !important;
+    max-height: 180px !important;
+    width: 550px !important;
+}
+
+.customer-impl-pre {
+    font-size: 16px !important; 
+    width: 550px !important;
+    max-height: 300px !important;
+}
+
+.customer-impl-code {
+    overflow-x: hidden !important;
+    max-height: 300px !important;
+    width: 550px !important;
+}

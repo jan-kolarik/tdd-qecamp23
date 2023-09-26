@@ -138,11 +138,9 @@
 									<li data-fragment-index="2" class="fragment fade-left">Drinkable (at once)</li>
 									<li data-fragment-index="3" class="fragment fade-left">Check it's full</li>
 								</ul>
-								<div style="flex: 50%;">
-									<p data-fragment-index="5" class="fragment fade-left">Test list:</p>
-									<p data-fragment-index="6" class="fragment fade-left">⬜ New beer is full</p>
-									<p data-fragment-index="7" class="fragment fade-left">⬜ Drunk beer is empty</p>
-								</div>
+								<p data-fragment-index="5" class="fragment fade-left">Test list:</p>
+								<p data-fragment-index="6" class="fragment fade-left">⬜ New beer is full</p>
+								<p data-fragment-index="7" class="fragment fade-left">⬜ Drunk beer is empty</p>
 							</div>
 							<div style="flex: 50%;">
 								<pre data-fragment-index="4" class="fragment fade-left code-pre">
@@ -444,7 +442,7 @@
 								<p>⬜ Drunk beer is empty</p>
 							</div>
 							<div style="flex: 50%;">
-								<pre class="code-pre">
+								<pre data-id="beer-test-anim1" class="code-pre">
 									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
 										[TestFixture]
 										class BeerTest
@@ -719,19 +717,2311 @@
 							</div>
 						</div>
 					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p data-fragment-index="1" class="fragment fade-left">Requirements:</p>
+								<ul>
+									<li data-fragment-index="2" class="fragment fade-left">Track beers</li>
+									<li data-fragment-index="3" class="fragment fade-left">Pay</li>
+								</ul>
+								<p data-fragment-index="5" class="fragment fade-left">Test list:</p>
+								<p data-fragment-index="6" class="fragment fade-left">⬜ New bill is empty</p>
+								<p data-fragment-index="7" class="fragment fade-left">⬜ Add beer</p>
+								<p data-fragment-index="8" class="fragment fade-left">⬜ Pay beer</p>
+								<p data-fragment-index="9" class="fragment fade-left">⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-fragment-index="4" class="fragment fade-left code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp">
+										interface IBill
+										{
+											void AddBeer();
+											void Pay( uint count );
+											uint GetUnpaidCount();
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: orange;">⬜ New bill is empty</p>
+								<p>⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+										}
+									</code>
+								</pre>
+								<pre class="code-pre" style="visibility: hidden;">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: orange;">⬜ New bill is empty</p>
+								<p>⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, new Bill().GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre" style="visibility: hidden;">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: orange;">⬜ New bill is empty</p>
+								<p>⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="4-9" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre" style="visibility: hidden;">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: orange;">⬜ New bill is empty</p>
+								<p>⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers="11-14" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre">
+									<code data-trim data-line-numbers="14-16" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: red;">⬜ New bill is empty</p>
+								<p>⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers="11-14" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="14-16" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: red;">⬜ New bill is empty</p>
+								<p>⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers="11-14" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="14-16" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return 0;
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: green;">✅ New bill is empty</p>
+								<p>⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="11-14" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre">
+									<code data-trim data-line-numbers="14-16" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return 0;
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p style="color: orange;">⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="16-18" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return 0;
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p style="color: orange;">⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="16-20" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return 0;
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p style="color: orange;">⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="16-22" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return 0;
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p style="color: red;">⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="16-22" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="3-16" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												throw new NotImplementedException();
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return 0;
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p style="color: red;">⬜ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="16-22" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="3-19" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p style="color: green;">✅ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="16-22" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="3-19" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p style="color: orange;">⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="24-26" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p style="color: orange;">⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="24-33" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+												bill.AddBeer();
+												bill.AddBeer();
+												bill.AddBeer();
+
+												bill.Pay( 2 );
+
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p style="color: red;">⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="24-33" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+												bill.AddBeer();
+												bill.AddBeer();
+												bill.AddBeer();
+
+												bill.Pay( 2 );
+
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="11-13" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p style="color: red;">⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="24-33" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+												bill.AddBeer();
+												bill.AddBeer();
+												bill.AddBeer();
+
+												bill.Pay( 2 );
+
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="11-13" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												unpaidBeers -= count;
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p style="color: green;">✅ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="24-33" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+												bill.AddBeer();
+												bill.AddBeer();
+												bill.AddBeer();
+
+												bill.Pay( 2 );
+
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="11-13" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												unpaidBeers -= count;
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p>✅ Pay beer</p>
+								<p style="color: orange;">⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="35-37" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+												bill.AddBeer();
+												bill.AddBeer();
+												bill.AddBeer();
+
+												bill.Pay( 2 );
+
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayTooManyThrowsAnException() {
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												unpaidBeers -= count;
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p>✅ Pay beer</p>
+								<p style="color: orange;">⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="35-41" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+												bill.AddBeer();
+												bill.AddBeer();
+												bill.AddBeer();
+
+												bill.Pay( 2 );
+
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayTooManyThrowsAnException() {
+												Assert.Catch( () => bill.Pay( 1 ) );
+
+												bill.AddBeer();
+												Assert.Catch( () => bill.Pay( 2 ) );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												unpaidBeers -= count;
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p>✅ Pay beer</p>
+								<p style="color: red;">⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="35-41" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+												bill.AddBeer();
+												bill.AddBeer();
+												bill.AddBeer();
+
+												bill.Pay( 2 );
+
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayTooManyThrowsAnException() {
+												Assert.Catch( () => bill.Pay( 1 ) );
+
+												bill.AddBeer();
+												Assert.Catch( () => bill.Pay( 2 ) );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="11-13" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												unpaidBeers -= count;
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p>✅ Pay beer</p>
+								<p style="color: red;">⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="35-41" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+												bill.AddBeer();
+												bill.AddBeer();
+												bill.AddBeer();
+
+												bill.Pay( 2 );
+
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayTooManyThrowsAnException() {
+												Assert.Catch( () => bill.Pay( 1 ) );
+
+												bill.AddBeer();
+												Assert.Catch( () => bill.Pay( 2 ) );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="11-17" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												if( count > unpaidBeers ) {
+													throw new Exception();
+												}
+
+												unpaidBeers -= count;
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p>✅ Add beer</p>
+								<p>✅ Pay beer</p>
+								<p style="color: green;">✅ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="35-41" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayDecreasesUnpaidCount() {
+												bill.AddBeer();
+												bill.AddBeer();
+												bill.AddBeer();
+
+												bill.Pay( 2 );
+
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void PayTooManyThrowsAnException() {
+												Assert.Catch( () => bill.Pay( 1 ) );
+
+												bill.AddBeer();
+												Assert.Catch( () => bill.Pay( 2 ) );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="11-17" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+												unpaidBeers = 0;
+											}
+
+											public void AddBeer() {
+												unpaidBeers++;
+											}
+
+											public void Pay( uint count ) {
+												if( count > unpaidBeers ) {
+													throw new Exception();
+												}
+
+												unpaidBeers -= count;
+											}
+
+											public uint GetUnpaidCount() {
+												return unpaidBeers;
+											}
+
+											private uint unpaidBeers;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p class="fragment fade-left">Requirements:</p>
+								<ul>
+									<li class="fragment fade-left">Order beer</li>
+									<li class="fragment fade-left">Keep bill</li>
+									<li class="fragment fade-left">Pay bill</li>
+								</ul>
+							</div>
+							<div style="flex: 50%;">
+								<pre class="fragment fade-left customer-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre" style="visibility: hidden;">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre" style="visibility: hidden;">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client() {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client() {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+										interface IWaiter
+										{
+											void Hello( IClient client );
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client() {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+										interface IWaiter
+										{
+											void Hello( IClient client );
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+										interface IWaiter
+										{
+											void Hello( IClient client );
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												[Test]
+												public void OrderBeerCallsWaiter() {
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+										interface IWaiter
+										{
+											void Hello( IClient client );
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="4-7" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													var waiter = new Mock<IWaiter>();
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+										interface IWaiter
+										{
+											void Hello( IClient client );
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="4-8" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													var waiter = new Mock<IWaiter>();
+													var client = new Client( waiter.Object );
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+										interface IWaiter
+										{
+											void Hello( IClient client );
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="4-10" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													var waiter = new Mock<IWaiter>();
+													var client = new Client( waiter.Object );
+
+													client.OrderBeer();
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+										interface IWaiter
+										{
+											void Hello( IClient client );
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="4-11" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													var waiter = new Mock<IWaiter>();
+													var client = new Client( waiter.Object );
+
+													client.OrderBeer();
+													waiter.Verify( x => x.Order( client ) );
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Customer is always right 🧑</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+									</code>
+								</pre>
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+										interface IWaiter
+										{
+											void Hello( IClient client );
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="4-11" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													var waiter = new Mock<IWaiter>();
+													var client = new Client( waiter.Object );
+
+													client.OrderBeer();
+													waiter.Verify( x => x.Order( client ) );
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers="7-9" class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+												this.waiter = waiter;
+											}
+
+											public void OrderBeer() {
+												waiter.Order( this );
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+
+											private IWaiter waiter;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
 				</section>
-				<section>
-					<h3>Beer, anyone?</h3>
-					<!-- Gradually implement the beer entity -->
-				</section>
-				<section>
-					<h3>Pay your bills</h3>
-					<!-- Gradually implement the bill entity -->
-				</section>
-				<section>
-					<h3>Customer is always right</h3>
-					<!-- Show implementation of customer + mocking -->
-				</section>
+				<!-- Waiter is left as an exercise (as maths teachers like to say, right?)-->
 				<section>
 					<h3>Daily challenges</h3>
 					<!-- Tell about common patterns when programming with TDD -->

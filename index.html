@@ -13,6 +13,9 @@
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/github.css">
 
+		<!-- Custom stylesheets -->
+        <link rel="stylesheet" href="custom/code.css">
+
 		<style>
 			.reveal {
 				--r-background-color: #ededed;
@@ -115,7 +118,8 @@
 					</section>
 				</section>
 				<section data-auto-animate>
-					<!-- Introduce our example project, entities -->
+					<!-- TODO: Pub image on the left from entities ? -->
+					<!-- TODO: Simpsons theme ? -->
 					<section data-auto-animate>
 						<h3>Designing a pub</h3>
 						<ul>
@@ -141,7 +145,7 @@
 								</div>
 							</div>
 							<div style="flex: 50%;">
-								<pre data-fragment-index="4" class="fragment fade-left" style="font-size: 18px; width: 100%;">
+								<pre data-fragment-index="4" class="fragment fade-left code-pre">
 									<code data-trim data-line-numbers class="hljs language-csharp">
 										interface IBeer 
 										{
@@ -162,19 +166,20 @@
 								<p>⬜ Drunk beer is empty</p>
 							</div>
 							<div style="flex: 50%; visibility: hidden;">
-								<pre style="font-size: 18px; width: 100%;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
 										[TestFixture]
 										class BeerTest
 										{
 										}
 									</code>
 								</pre>
-								<pre style="font-size: 18px; width: 505px; visibility: hidden;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
-										class Beer : IBeer 
+								<pre class="code-pre" style="visibility: hidden;">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
 										{
-											public Beer() {}
+											public Beer() {
+											}
 
 											public bool IsFull() {
 												throw new NotImplementedException(); 
@@ -198,19 +203,20 @@
 								<p>⬜ Drunk beer is empty</p>
 							</div>
 							<div style="flex: 50%;">
-								<pre data-id="beer-test-anim1" style="font-size: 18px; width: 100%;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
+								<pre data-id="beer-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
 										[TestFixture]
 										class BeerTest
 										{
 										}
 									</code>
 								</pre>
-								<pre style="font-size: 18px; width: 505px; visibility: hidden;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
-										class Beer : IBeer 
+								<pre class="code-pre" style="visibility: hidden;">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
 										{
-											public Beer() {}
+											public Beer() {
+											}
 
 											public bool IsFull() {
 												throw new NotImplementedException(); 
@@ -234,8 +240,48 @@
 								<p>⬜ Drunk beer is empty</p>
 							</div>
 							<div style="flex: 50%;">
-								<pre data-id="beer-test-anim1" style="font-size: 18px; width: 100%;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
+								<pre data-id="beer-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BeerTest
+										{
+											[Test]
+											public void BeerIsFullAfterCreation() {
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre" style="visibility: hidden;">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
+										{
+											public Beer() {
+											}
+
+											public bool IsFull() {
+												throw new NotImplementedException(); 
+											}
+
+											public void Drink() {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p style="color: orange;">⬜ New beer is full</p>
+								<p>⬜ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="beer-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
 										[TestFixture]
 										class BeerTest
 										{
@@ -246,11 +292,12 @@
 										}
 									</code>
 								</pre>
-								<pre style="font-size: 18px; width: 505px; visibility: hidden;">
-									<code data-trim data-line-numbers class="hljs language-csharp"  style="overflow: hidden;">
-										class Beer : IBeer 
+								<pre class="code-pre" style="visibility: hidden;">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
 										{
-											public Beer() {}
+											public Beer() {
+											}
 
 											public bool IsFull() {
 												throw new NotImplementedException(); 
@@ -274,8 +321,8 @@
 								<p>⬜ Drunk beer is empty</p>
 							</div>
 							<div style="flex: 50%;">
-								<pre style="font-size: 18px; width: 100%;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
 										[TestFixture]
 										class BeerTest
 										{
@@ -286,11 +333,12 @@
 										}
 									</code>
 								</pre>
-								<pre style="font-size: 18px; width: 505px;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
-										class Beer : IBeer 
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
 										{
-											public Beer() {}
+											public Beer() {
+											}
 
 											public bool IsFull() {
 												throw new NotImplementedException(); 
@@ -314,8 +362,8 @@
 								<p>⬜ Drunk beer is empty</p>
 							</div>
 							<div style="flex: 50%;">
-								<pre style="font-size: 18px; width: 100%;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
 										[TestFixture]
 										class BeerTest
 										{
@@ -326,11 +374,12 @@
 										}
 									</code>
 								</pre>
-								<pre data-id="beer-impl-anim1" style="font-size: 18px; width: 505px;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
-										class Beer : IBeer 
+								<pre data-id="beer-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="6-8" class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
 										{
-											public Beer() {}
+											public Beer() {
+											}
 
 											public bool IsFull() {
 												throw new NotImplementedException(); 
@@ -354,8 +403,8 @@
 								<p>⬜ Drunk beer is empty</p>
 							</div>
 							<div style="flex: 50%;">
-								<pre style="font-size: 18px; width: 100%;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
 										[TestFixture]
 										class BeerTest
 										{
@@ -366,11 +415,12 @@
 										}
 									</code>
 								</pre>
-								<pre data-id="beer-impl-anim1" style="font-size: 18px; width: 505px;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
-										class Beer : IBeer 
+								<pre data-id="beer-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="6-8" class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
 										{
-											public Beer() {}
+											public Beer() {
+											}
 
 											public bool IsFull() {
 												return true;
@@ -394,8 +444,8 @@
 								<p>⬜ Drunk beer is empty</p>
 							</div>
 							<div style="flex: 50%;">
-								<pre style="font-size: 18px; width: 100%;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
 										[TestFixture]
 										class BeerTest
 										{
@@ -406,11 +456,12 @@
 										}
 									</code>
 								</pre>
-								<pre style="font-size: 18px; width: 505px;">
-									<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
-										class Beer : IBeer 
+								<pre class="code-pre">
+									<code data-trim data-line-numbers="6-8" class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
 										{
-											public Beer() {}
+											public Beer() {
+											}
 
 											public bool IsFull() {
 												return true;
@@ -419,6 +470,249 @@
 											public void Drink() {
 												throw new NotImplementedException();
 											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New beer is full</p>
+								<p style="color: orange;">⬜ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="beer-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="9-11" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BeerTest
+										{
+											[Test]
+											public void BeerIsFullAfterCreation() {
+												Assert.IsTrue( new Beer().IsFull() );
+											}
+
+											[Test]
+											public void BeerIsEmptyAfterDrinking() {
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
+										{
+											public Beer() {
+											}
+
+											public bool IsFull() {
+												return true;
+											}
+
+											public void Drink() {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New beer is full</p>
+								<p style="color: orange;">⬜ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="beer-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="9-14" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BeerTest
+										{
+											[Test]
+											public void BeerIsFullAfterCreation() {
+												Assert.IsTrue( new Beer().IsFull() );
+											}
+
+											[Test]
+											public void BeerIsEmptyAfterDrinking() {
+												var beer = new Beer();
+												beer.Drink();
+												Assert.IsFalse( beer.IsFull() );
+											}
+										}
+									</code>
+								</pre>
+								<pre class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
+										{
+											public Beer() {
+											}
+
+											public bool IsFull() {
+												return true;
+											}
+
+											public void Drink() {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New beer is full</p>
+								<p style="color: red;">⬜ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers="9-14" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BeerTest
+										{
+											[Test]
+											public void BeerIsFullAfterCreation() {
+												Assert.IsTrue( new Beer().IsFull() );
+											}
+
+											[Test]
+											public void BeerIsEmptyAfterDrinking() {
+												var beer = new Beer();
+												beer.Drink();
+												Assert.IsFalse( beer.IsFull() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="beer-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
+										{
+											public Beer() {
+											}
+
+											public bool IsFull() {
+												return true;
+											}
+
+											public void Drink() {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New beer is full</p>
+								<p style="color: red;">⬜ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers="9-14" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BeerTest
+										{
+											[Test]
+											public void BeerIsFullAfterCreation() {
+												Assert.IsTrue( new Beer().IsFull() );
+											}
+
+											[Test]
+											public void BeerIsEmptyAfterDrinking() {
+												var beer = new Beer();
+												beer.Drink();
+												Assert.IsFalse( beer.IsFull() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="beer-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="3-15" class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
+										{
+											public Beer() {
+												this.isFull = true;
+											}
+
+											public bool IsFull() {
+												return isFull;
+											}
+
+											public void Drink() {
+												isFull = false;
+											}
+
+											private bool isFull;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Beer, anyone? 🍺</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New beer is full</p>
+								<p style="color: green;">✅ Drunk beer is empty</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre class="code-pre">
+									<code data-trim data-line-numbers="9-14" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BeerTest
+										{
+											[Test]
+											public void BeerIsFullAfterCreation() {
+												Assert.IsTrue( new Beer().IsFull() );
+											}
+
+											[Test]
+											public void BeerIsEmptyAfterDrinking() {
+												var beer = new Beer();
+												beer.Drink();
+												Assert.IsFalse( beer.IsFull() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="beer-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="3-15" class="hljs language-csharp code-no-horiz-scroll">
+										class Beer : IBeer
+										{
+											public Beer() {
+												this.isFull = true;
+											}
+
+											public bool IsFull() {
+												return isFull;
+											}
+
+											public void Drink() {
+												isFull = false;
+											}
+
+											private bool isFull;
 										}
 									</code>
 								</pre>
@@ -474,6 +768,7 @@
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
+				controls: false,
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/

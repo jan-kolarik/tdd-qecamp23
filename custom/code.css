@@ -67,3 +67,13 @@ img.pub-items-images {
     margin-top: 0;
     margin-left: 20px;
 }
+
+.fakeit-pre {
+    font-size: 16px !important; 
+    width: 470px !important;
+}
+
+.fakeit-code {
+    overflow-x: hidden !important;
+    width: 470px !important;
+}

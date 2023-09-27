@@ -3678,15 +3678,185 @@
 						<p>The rest is left as an exercise ...</p>
 					</section>
 				</section>
-				<!-- Waiter is left as an exercise (as maths teachers like to say, right?)-->
-				<section>
-					<h3>Daily challenges</h3>
-					<!-- Tell about common patterns when programming with TDD -->
-					<!-- Fake it method -->
-					<!-- External dependencies - mocks and stubs -->
-					<!-- Wrapping static classes -->
-					<!-- Stuck - big test -->
-					<!-- Stuck - invalid API => rewrite -->
+				<section data-auto-animate>
+					<section data-auto-animate>
+						<h3>Daily practices</h3>
+					</section>
+					<section data-auto-animate>
+						<h3>Fake it method</h3>
+						<ul>
+							<li class="fragment fade-left">Write more tests</li>
+							<li class="fragment fade-left">Start with hardcoded result</li>
+							<li class="fragment fade-left">Generalize the code</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h3>Fake it method</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<img src="img/fakeit1.svg" width="195px" />
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="fake-it" class="fakeit-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp fakeit-code">
+										class Square 
+										{
+											Square( double edge ) {
+											}
+										
+											public double Area() {
+												throw new NotImplementedException();
+											}
+										}
+
+										[TestFixture]
+										class SquareTest
+										{
+											[Test]
+											public void AreaWithEdgeOfThree() {
+												var square = new Square( 3.0 );
+												Assert.AreEqual( 9.0, square.Area() );
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Fake it method</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<img src="img/fakeit2.svg" width="195px" />
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="fake-it" class="fakeit-pre">
+									<code data-trim data-line-numbers="7" class="hljs language-csharp fakeit-code">
+										class Square 
+										{
+											Square( double edge ) {
+											}
+										
+											public double Area() {
+												return 9.0;
+											}
+										}
+
+										[TestFixture]
+										class SquareTest
+										{
+											[Test]
+											public void AreaWithEdgeOfThree() {
+												var square = new Square( 3.0 );
+												Assert.AreEqual( 9.0, square.Area() );
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Fake it method</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<img src="img/fakeit3.svg" width="450px" />
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="fake-it" class="fakeit-pre">
+									<code data-trim data-line-numbers="20-24" class="hljs language-csharp fakeit-code">
+										class Square 
+										{
+											Square( double edge ) {
+											}
+										
+											public double Area() {
+												return 9.0;
+											}
+										}
+
+										[TestFixture]
+										class SquareTest
+										{
+											[Test]
+											public void AreaWithEdgeOfThree() {
+												var square = new Square( 3.0 );
+												Assert.AreEqual( 9.0, square.Area() );
+											}
+
+											[Test]
+											public void AreaWithEdgeOfFour() {
+												var square = new Square( 4.0 );
+												Assert.AreEqual( 16.0, square.Area() );
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Fake it method</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<img src="img/fakeit4.svg" width="450px" />
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="fake-it" class="fakeit-pre">
+									<code data-trim data-line-numbers="3-11" class="hljs language-csharp fakeit-code">
+										class Square 
+										{
+											Square( double edge ) {
+												this.edge = edge;
+											}
+										
+											public double Area() {
+												return edge * edge;
+											}
+
+											private double edge;
+										}
+
+										[TestFixture]
+										class SquareTest
+										{
+											[Test]
+											public void AreaWithEdgeOfThree() {
+												var square = new Square( 3.0 );
+												Assert.AreEqual( 9.0, square.Area() );
+											}
+
+											[Test]
+											public void AreaWithEdgeOfFour() {
+												var square = new Square( 4.0 );
+												Assert.AreEqual( 16.0, square.Area() );
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3>Fake it method</h3>
+						<ul>
+							<li>Psychological effect</li>
+							<li>Scope control</li>
+							<li>Refactor to deduplicate</li>
+						</ul>
+					</section>
+					<!-- TODO: More fun / story way how to expand each item ? -->
+					<!-- Like create some short story for each point why it is needed? What is the use case? -->
+					<section data-auto-animate>
+						<h3>Help me, I'm stuck!</h3>
+						<ul>
+							<li class="fragment fade-left">Use mocks or stubs</li>
+							<li class="fragment fade-left">Create wrappers</li>
+							<li class="fragment fade-left">Do triangulation</li>
+							<li class="fragment fade-left">Break down the big test</li>
+							<li class="fragment fade-left">Rewrite API</li>
+						</ul>
+					</section>
 				</section>
 				<section>
 					<h3>Legacy vs TDD</h3>

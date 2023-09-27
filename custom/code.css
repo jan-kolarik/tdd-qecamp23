@@ -13,37 +13,57 @@
 .customer-iface-pre {
     font-size: 16px !important; 
     width: 400px !important;
-    max-height: 180px !important;
+    max-height: 300px !important;
 }
 
 .customer-iface-code {
     overflow-x: hidden !important;
-    max-height: 180px !important;
+    max-height: 300px !important;
     width: 400px !important;
 }
 
 .customer-test-pre {
     font-size: 16px !important; 
     width: 550px !important;
-    height: 180px !important;
-    max-height: 180px !important;
+    max-height: 300px !important;
 }
 
 .customer-test-code {
     overflow-x: hidden !important;
-    height: 180px !important;
-    max-height: 180px !important;
+    max-height: 300px !important;
     width: 550px !important;
 }
 
 .customer-impl-pre {
     font-size: 16px !important; 
     width: 550px !important;
-    max-height: 300px !important;
+    max-height: 240px !important;
 }
 
 .customer-impl-code {
     overflow-x: hidden !important;
-    max-height: 300px !important;
+    max-height: 240px !important;
     width: 550px !important;
+}
+
+.pub-items-images {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    font-size: 80px;
+}
+
+img.pub-items-images {
+    width: 80px;
+}
+
+.header-with-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-with-image img {
+    width: 60px;
+    margin-top: 0;
+    margin-left: 20px;
 }

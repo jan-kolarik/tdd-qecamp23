@@ -122,12 +122,45 @@
 					<!-- TODO: Simpsons theme ? -->
 					<section data-auto-animate>
 						<h3>Designing a pub</h3>
-						<ul>
-							<li class="fragment fade-left">Beer 🍺</li>
-							<li class="fragment fade-left">Bill 📜</li>
-							<li class="fragment fade-left">Client 🧑</li>
-							<li class="fragment fade-left">Waiter 🤵</li>
-						</ul>
+						<div style="display: flex;">
+							<div style="flex: 75%;">
+								<img class="fragment fade-left" src="img/pub.webp" />
+							</div>
+							<div style="flex: 25%;">
+								<div class="fragment fade-left" style="display: flex; align-items: center;">
+									<div style="flex: 50%;">
+										<p>Beer</p>
+									</div>
+									<div style="flex: 50%;">
+										<p class="pub-items-images">🍺</p>
+									</div>
+								</div>
+								<div class="fragment fade-left" style="display: flex; align-items: center;">
+									<div style="flex: 50%;">
+										<p>Bill</p>
+									</div>
+									<div style="flex: 50%;">
+										<p class="pub-items-images">📜</p>
+									</div>
+								</div>
+								<div class="fragment fade-left" style="display: flex; align-items: center;">
+									<div style="flex: 50%;">
+										<p>Client</p>
+									</div>
+									<div style="flex: 50%;">
+										<img class="pub-items-images" src="img/homer.png" />
+									</div>
+								</div>
+								<div class="fragment fade-left" style="display: flex; align-items: center;">
+									<div style="flex: 50%;">
+										<p>Waiter</p>
+									</div>
+									<div style="flex: 50%;">
+										<img class="pub-items-images" src="img/moe.png" />
+									</div>
+								</div>
+							</div>
+						</div>
 					</section>
 					<section data-auto-animate style="text-align: left;">
 						<h3>Beer, anyone? 🍺</h3>
@@ -1387,15 +1420,14 @@
 									</code>
 								</pre>
 								<pre data-id="bill-impl-anim1" class="code-pre">
-									<code data-trim data-line-numbers="3-19" class="hljs language-csharp code-no-horiz-scroll">
+									<code data-trim data-line-numbers="6-19" class="hljs language-csharp code-no-horiz-scroll">
 										class Bill : IBill
 										{
 											public Bill() {
-												unpaidBeers = 0;
 											}
 
 											public void AddBeer() {
-												unpaidBeers++;
+												beers = beers + 1;
 											}
 
 											public void Pay( uint count ) {
@@ -1403,10 +1435,10 @@
 											}
 
 											public uint GetUnpaidCount() {
-												return unpaidBeers;
+												return beers;
 											}
 
-											private uint unpaidBeers;
+											private uint beers = 0;
 										}
 									</code>
 								</pre>
@@ -1420,6 +1452,70 @@
 								<p>Test list:</p>
 								<p>✅ New bill is empty</p>
 								<p style="color: green;">✅ Add beer</p>
+								<p>⬜ Pay beer</p>
+								<p>⬜ Pay too many</p>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="bill-test-anim1" class="code-pre">
+									<code data-trim data-line-numbers="16-22" class="hljs language-csharp code-no-horiz-scroll">
+										[TestFixture]
+										class BillTest
+										{
+											Bill bill;
+
+											[SetUp]
+											public void Init() {
+												bill = new Bill();
+											}
+
+											[Test]
+											public void GetUnpaidCountIsZeroByDefault() {
+												Assert.AreEqual( 0, bill.GetUnpaidCount() );
+											}
+
+											[Test]
+											public void AddBeerIncrementsUnpaidCount() {
+												bill.AddBeer();
+												Assert.AreEqual( 1, bill.GetUnpaidCount() );
+												bill.AddBeer();
+												Assert.AreEqual( 2, bill.GetUnpaidCount() );
+											}
+										}
+									</code>
+								</pre>
+								<pre data-id="bill-impl-anim1" class="code-pre">
+									<code data-trim data-line-numbers="6-19" class="hljs language-csharp code-no-horiz-scroll">
+										class Bill : IBill
+										{
+											public Bill() {
+											}
+
+											public void AddBeer() {
+												beers = beers + 1;
+											}
+
+											public void Pay( uint count ) {
+												throw new NotImplementedException(); 
+											}
+
+											public uint GetUnpaidCount() {
+												return beers;
+											}
+
+											private uint beers = 0;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate style="text-align: left;">
+						<h3>Pay the bills 📜</h3>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<p>Test list:</p>
+								<p>✅ New bill is empty</p>
+								<p style="color: blue;">✅ Add beer</p>
 								<p>⬜ Pay beer</p>
 								<p>⬜ Pay too many</p>
 							</div>
@@ -2276,7 +2372,10 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
 								<p class="fragment fade-left">Requirements:</p>
@@ -2287,7 +2386,7 @@
 								</ul>
 							</div>
 							<div style="flex: 50%;">
-								<pre class="fragment fade-left customer-iface-pre">
+								<pre data-id="client-iface-anim1" class="fragment fade-left customer-iface-pre">
 									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
 										interface IClient
 										{
@@ -2303,10 +2402,13 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
-								<pre class="customer-iface-pre">
+								<pre data-id="client-iface-anim1" class="customer-iface-pre">
 									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
 										interface IClient
 										{
@@ -2363,10 +2465,13 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
-								<pre class="customer-iface-pre">
+								<pre data-id="client-iface-anim1" class="customer-iface-pre">
 									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
 										interface IClient
 										{
@@ -2423,11 +2528,14 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
-								<pre class="customer-iface-pre">
-									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+								<pre data-id="client-iface-anim1" class="customer-iface-pre">
+									<code data-trim data-line-numbers="3,10-14" class="hljs language-csharp customer-iface-code">
 										interface IClient
 										{
 											void OrderBeer();
@@ -2436,13 +2544,9 @@
 											IBill GetBill();
 											void PayBill();
 										}
-									</code>
-								</pre>
-								<pre class="customer-iface-pre">
-									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+
 										interface IWaiter
 										{
-											void Hello( IClient client );
 											void Order( IClient client );
 											void Pay( IClient client );
 										}
@@ -2493,7 +2597,10 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
 								<pre class="customer-iface-pre">
@@ -2506,13 +2613,9 @@
 											IBill GetBill();
 											void PayBill();
 										}
-									</code>
-								</pre>
-								<pre class="customer-iface-pre">
-									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+
 										interface IWaiter
 										{
-											void Hello( IClient client );
 											void Order( IClient client );
 											void Pay( IClient client );
 										}
@@ -2563,7 +2666,10 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
 								<pre class="customer-iface-pre">
@@ -2576,13 +2682,9 @@
 											IBill GetBill();
 											void PayBill();
 										}
-									</code>
-								</pre>
-								<pre class="customer-iface-pre">
-									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+
 										interface IWaiter
 										{
-											void Hello( IClient client );
 											void Order( IClient client );
 											void Pay( IClient client );
 										}
@@ -2636,7 +2738,10 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
 								<pre class="customer-iface-pre">
@@ -2649,13 +2754,9 @@
 											IBill GetBill();
 											void PayBill();
 										}
-									</code>
-								</pre>
-								<pre class="customer-iface-pre">
-									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+
 										interface IWaiter
 										{
-											void Hello( IClient client );
 											void Order( IClient client );
 											void Pay( IClient client );
 										}
@@ -2710,7 +2811,10 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
 								<pre class="customer-iface-pre">
@@ -2723,13 +2827,9 @@
 											IBill GetBill();
 											void PayBill();
 										}
-									</code>
-								</pre>
-								<pre class="customer-iface-pre">
-									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+
 										interface IWaiter
 										{
-											void Hello( IClient client );
 											void Order( IClient client );
 											void Pay( IClient client );
 										}
@@ -2785,7 +2885,10 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
 								<pre class="customer-iface-pre">
@@ -2798,13 +2901,9 @@
 											IBill GetBill();
 											void PayBill();
 										}
-									</code>
-								</pre>
-								<pre class="customer-iface-pre">
-									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+
 										interface IWaiter
 										{
-											void Hello( IClient client );
 											void Order( IClient client );
 											void Pay( IClient client );
 										}
@@ -2862,7 +2961,10 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
 								<pre class="customer-iface-pre">
@@ -2875,13 +2977,9 @@
 											IBill GetBill();
 											void PayBill();
 										}
-									</code>
-								</pre>
-								<pre class="customer-iface-pre">
-									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+
 										interface IWaiter
 										{
-											void Hello( IClient client );
 											void Order( IClient client );
 											void Pay( IClient client );
 										}
@@ -2940,7 +3038,10 @@
 						</div>
 					</section>
 					<section data-auto-animate>
-						<h3>Customer is always right 🧑</h3>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
 						<div style="display: flex;">
 							<div style="flex: 50%;">
 								<pre class="customer-iface-pre">
@@ -2953,13 +3054,9 @@
 											IBill GetBill();
 											void PayBill();
 										}
-									</code>
-								</pre>
-								<pre class="customer-iface-pre">
-									<code data-trim data-line-numbers class="hljs language-csharp customer-iface-code">
+
 										interface IWaiter
 										{
-											void Hello( IClient client );
 											void Order( IClient client );
 											void Pay( IClient client );
 										}
@@ -2968,16 +3065,23 @@
 							</div>
 							<div style="flex: 50%;">
 								<pre data-id="client-test-anim1" class="customer-test-pre">
-									<code data-trim data-line-numbers="4-11" class="hljs language-csharp customer-test-code">
+									<code data-trim data-line-numbers="4-18" class="hljs language-csharp customer-test-code">
 										<script type="text/template">
 											[TestFixture]
 											class ClientTest
 											{
+												Client client;
+												Mock<IWaiter> waiter;
+
+												[SetUp]
+												public void Init()
+												{
+													waiter = new Mock<IWaiter>();
+													client = new Client( waiter.Object );
+												}
+
 												[Test]
 												public void OrderBeerCallsWaiter() {
-													var waiter = new Mock<IWaiter>();
-													var client = new Client( waiter.Object );
-
 													client.OrderBeer();
 													waiter.Verify( x => x.Order( client ) );
 												}
@@ -2986,7 +3090,177 @@
 									</code>
 								</pre>
 								<pre data-id="client-impl-anim1" class="customer-impl-pre">
-									<code data-trim data-line-numbers="7-9" class="hljs language-csharp customer-impl-code">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+
+										interface IWaiter
+										{
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="4-18" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												Client client;
+												Mock<IWaiter> waiter;
+
+												[SetUp]
+												public void Init()
+												{
+													waiter = new Mock<IWaiter>();
+													client = new Client( waiter.Object );
+												}
+
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													client.OrderBeer();
+													waiter.Verify( x => x.Order( client ) );
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers="3-8" class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+											}
+
+											public void OrderBeer() {
+												throw new NotImplementedException(); 
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+
+											private IWaiter waiter;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="3" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+
+										interface IWaiter
+										{
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="4-18" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												Client client;
+												Mock<IWaiter> waiter;
+
+												[SetUp]
+												public void Init()
+												{
+													waiter = new Mock<IWaiter>();
+													client = new Client( waiter.Object );
+												}
+
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													client.OrderBeer();
+													waiter.Verify( x => x.Order( client ) );
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers="3-9" class="hljs language-csharp customer-impl-code">
 										class Client : IClient
 										{
 											public Client( IWaiter waiter ) {
@@ -3019,6 +3293,389 @@
 								</pre>
 							</div>
 						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="4" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+
+										interface IWaiter
+										{
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="20-22" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												Client client;
+												Mock<IWaiter> waiter;
+
+												[SetUp]
+												public void Init()
+												{
+													waiter = new Mock<IWaiter>();
+													client = new Client( waiter.Object );
+												}
+
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													client.OrderBeer();
+													waiter.Verify( x => x.Order( client ) );
+												}
+
+												[Test]
+												public void ReceiveBeerWillDrinkIt() {
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+												this.waiter = waiter;
+											}
+
+											public void OrderBeer() {
+												waiter.Order( this );
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+
+											private IWaiter waiter;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="4" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+
+										interface IWaiter
+										{
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="20-26" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												Client client;
+												Mock<IWaiter> waiter;
+
+												[SetUp]
+												public void Init()
+												{
+													waiter = new Mock<IWaiter>();
+													client = new Client( waiter.Object );
+												}
+
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													client.OrderBeer();
+													waiter.Verify( x => x.Order( client ) );
+												}
+
+												[Test]
+												public void ReceiveBeerWillDrinkIt() {
+													var beer = new Mock<IBeer>();
+													customer.ReceiveBeer( beer.Object );
+
+													beer.Verify( x => x.Drink(), Times.Once );
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+												this.waiter = waiter;
+											}
+
+											public void OrderBeer() {
+												waiter.Order( this );
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+
+											private IWaiter waiter;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="4" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+
+										interface IWaiter
+										{
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="20-26" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												Client client;
+												Mock<IWaiter> waiter;
+
+												[SetUp]
+												public void Init()
+												{
+													waiter = new Mock<IWaiter>();
+													client = new Client( waiter.Object );
+												}
+
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													client.OrderBeer();
+													waiter.Verify( x => x.Order( client ) );
+												}
+
+												[Test]
+												public void ReceiveBeerWillDrinkIt() {
+													var beer = new Mock<IBeer>();
+													customer.ReceiveBeer( beer.Object );
+
+													beer.Verify( x => x.Drink(), Times.Once );
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers="23-25" class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+												this.waiter = waiter;
+											}
+
+											public void OrderBeer() {
+												waiter.Order( this );
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												throw new NotImplementedException();
+											}
+
+											private IWaiter waiter;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre class="customer-iface-pre">
+									<code data-trim data-line-numbers="4" class="hljs language-csharp customer-iface-code">
+										interface IClient
+										{
+											void OrderBeer();
+											void ReceiveBeer( IBeer beer );
+											void SetBill( IBill bill );
+											IBill GetBill();
+											void PayBill();
+										}
+
+										interface IWaiter
+										{
+											void Order( IClient client );
+											void Pay( IClient client );
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="client-test-anim1" class="customer-test-pre">
+									<code data-trim data-line-numbers="20-26" class="hljs language-csharp customer-test-code">
+										<script type="text/template">
+											[TestFixture]
+											class ClientTest
+											{
+												Client client;
+												Mock<IWaiter> waiter;
+
+												[SetUp]
+												public void Init()
+												{
+													waiter = new Mock<IWaiter>();
+													client = new Client( waiter.Object );
+												}
+
+												[Test]
+												public void OrderBeerCallsWaiter() {
+													client.OrderBeer();
+													waiter.Verify( x => x.Order( client ) );
+												}
+
+												[Test]
+												public void ReceiveBeerWillDrinkIt() {
+													var beer = new Mock<IBeer>();
+													customer.ReceiveBeer( beer.Object );
+
+													beer.Verify( x => x.Drink(), Times.Once );
+												}
+											}
+										</script>
+									</code>
+								</pre>
+								<pre data-id="client-impl-anim1" class="customer-impl-pre">
+									<code data-trim data-line-numbers="23-25" class="hljs language-csharp customer-impl-code">
+										class Client : IClient
+										{
+											public Client( IWaiter waiter ) {
+												this.waiter = waiter;
+											}
+
+											public void OrderBeer() {
+												waiter.Order( this );
+											}
+
+											public void SetBill( IBill bill ) {
+												throw new NotImplementedException();
+											}
+
+											public IBill GetBill() {
+												throw new NotImplementedException();
+											}
+
+											public void PayBill() {
+												throw new NotImplementedException();
+											}
+
+											public void ReceiveBeer( IBeer beer ) {
+												beer.Drink();
+											}
+
+											private IWaiter waiter;
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div class="header-with-image">
+							<h3>Customer is always right</h3>
+							<img src="img/homer.png" />
+						</div>
+						<p>The rest is left as an exercise ...</p>
 					</section>
 				</section>
 				<!-- Waiter is left as an exercise (as maths teachers like to say, right?)-->

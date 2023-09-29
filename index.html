@@ -3858,11 +3858,205 @@
 						</ul>
 					</section>
 				</section>
-				<section>
-					<h3>Legacy vs TDD</h3>
-					<!-- Show the outcome of using TDD -->
-					<!-- Compare non-TDD with TDD code -->
-					<!-- Try to show satisfying each SOLID aspect -->
+				<section data-auto-animate>
+					<section data-auto-animate>
+						<h3>Let's write great code</h3>
+						<h4 class="fragment fade-left">... by just using TDD!</h4>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: orange">S</span>OLID code</h3>
+						<h4>Single-responsibility principle</h4>
+						<p class="fragment fade-left" style="font-size: 30px; font-style: italic;">A module should be responsible to one, and only one, actor.</p>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: red">S</span>OLID code</h3>
+						<h4>Single-responsibility</h4>
+						<pre data-id="srp-code">
+							<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
+								interface IReportProcessor 
+								{
+									IReport Parse( string text );
+									void Print( IReport report );
+								}
+							</code>
+						</pre>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">S</span>OLID code</h3>
+						<h4>Single-responsibility</h4>
+						<pre data-id="srp-code">
+							<code data-trim data-line-numbers class="hljs language-csharp" style="overflow: hidden;">
+								interface IReportParser 
+								{
+									IReport Parse( string text );
+								}
+
+								interface IReportPrinter 
+								{
+									void Print( IReport report );
+								}
+							</code>
+						</pre>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">S</span><span style="color: orange">O</span>LID code</h3>
+						<h4>Open-closed principle</h4>
+						<p class="fragment fade-left" style="font-size: 30px; font-style: italic;">Entities should be open for extension, but closed for modification.</p>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">S</span><span style="color: red">O</span>LID code</h3>
+						<h4>Open-closed principle</h4>
+						<img src="img/open-close-violation.svg" height="300px"/>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SO</span>LID code</h3>
+						<h4>Open-closed principle</h4>
+						<img src="img/open-close-correct.svg" height="300px"/>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SO</span><span style="color: orange">L</span>ID code</h3>
+						<h4>Liskov substitution</h4>
+						<p class="fragment fade-left" style="font-size: 30px; font-style: italic;">Subclasses should be interchangeable with their base classes seamlessly.</p>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SO</span><span style="color: red">L</span>ID code</h3>
+						<h4>Liskov substitution</h4>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<img src="img/liskov-violation.svg" width="500px"/>	
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="liskov-code" class="liskov-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp liskov-code">
+										Apple apple = new Orange();
+										apple.GetColor();
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SOL</span>ID code</h3>
+						<h4>Liskov substitution</h4>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<img src="img/liskov-correct.svg" width="500px"/>	
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="liskov-code" class="liskov-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp liskov-code">
+										Fruit fruit = new Orange();
+										fruit.GetColor();
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SOL</span><span style="color: orange">I</span>D code</h3>
+						<h4>Interface segregation</h4>
+						<p class="fragment fade-left" style="font-size: 30px; font-style: italic;">Clients should not be forced to depend on interfaces they do not use.</p>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SOL</span><span style="color: red">I</span>D code</h3>
+						<h4>Interface segregation</h4>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre data-id="is-iface-id" class="is-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp is-iface-code">
+										interface ILaundry
+										{
+											void Wash();
+											void Dry();
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="is-impl-id" class="is-impl-pre fragment fade-left">
+									<code data-trim data-line-numbers class="hljs language-csharp is-impl-code">
+										class ComboWashingMashine : ILaundry
+										{
+											public void Wash() {
+												// do the work
+											}
+											public void Dry() {
+												// do the work
+											}
+										}
+										class SimpleWashingMashine : ILaundry
+										{
+											public void Wash() {
+												// do the work as well
+											}
+											public void DryClothes() {
+												// whoops, can't do
+												throw new NotImplementedException();
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SOLI</span>D code</h3>
+						<h4>Interface segregation</h4>
+						<div style="display: flex;">
+							<div style="flex: 50%;">
+								<pre data-id="is-iface-id" class="is-iface-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp is-iface-code">
+										interface IWashLaundry
+										{
+											void Wash();
+										}
+
+										interface IDryLaundry
+										{
+											void Dry();
+										}
+									</code>
+								</pre>
+							</div>
+							<div style="flex: 50%;">
+								<pre data-id="is-impl-id" class="is-impl-pre">
+									<code data-trim data-line-numbers class="hljs language-csharp is-impl-code">
+										class ComboWashingMashine : IWashLaundry, 
+										                            IDryLaundry
+										{
+											public void Wash() {
+												// do the work
+											}
+											public void Dry() {
+												// do the work
+											}
+										}
+										class SimpleWashingMashine : IWashLaundry
+										{
+											public void Wash() {
+												// do the work
+											}
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SOLI</span><span style="color: orange">D</span> code</h3>
+						<h4>Dependency inversion</h4>
+						<p class="fragment fade-left" style="font-size: 30px; font-style: italic;">One should depend upon abstractions, not concretions.</p>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SOLI</span><span style="color: red">D</span> code</h3>
+						<h4>Dependency inversion</h4>
+						<img src="img/di-violation.svg" width="800px"/>
+					</section>
+					<section data-auto-animate>
+						<h3><span style="color: green">SOLID</span> code</h3>
+						<h4>Dependency inversion</h4>
+						<img src="img/di-correct.svg" width="800px"/>
+					</section>
 				</section>
 				<section>
 					<h3>Server driver diagram</h3>

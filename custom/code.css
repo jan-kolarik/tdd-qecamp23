@@ -77,3 +77,30 @@ img.pub-items-images {
     overflow-x: hidden !important;
     width: 470px !important;
 }
+
+.liskov-pre {
+    font-size: 18px !important; 
+    width: 350px !important;
+}
+
+.liskov-code {
+    overflow: hidden !important;
+}
+
+.is-iface-pre {
+    font-size: 18px !important; 
+    width: 320px !important;
+}
+
+.is-iface-code {
+    overflow: hidden !important;
+}
+
+.is-impl-pre {
+    font-size: 18px !important; 
+    width: 550px !important;
+}
+
+.is-impl-code {
+    overflow: hidden !important;
+}

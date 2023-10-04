@@ -1,0 +1,32 @@
+.motivation-image {
+    width: 128px;
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+.motivation-image-shade {
+    filter: opacity(0.2);
+}
+
+.motivation-image-hidden-in-center {
+    width: 1px;
+    visibility: hidden;
+}
+
+table.image-table img {
+    margin: 0 !important;
+}
+
+table.image-table {
+    table-layout: fixed;
+}
+
+table.image-table tr td {
+    border: none;
+    vertical-align: middle;
+}
+
+table.image-table div.r-stack {
+    align-items: center;
+    justify-items: center;
+}

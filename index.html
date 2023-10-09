@@ -3585,7 +3585,7 @@
 												[Test]
 												public void ReceiveBeerWillDrinkIt() {
 													var beer = new Mock<IBeer>();
-													customer.ReceiveBeer( beer.Object );
+													client.ReceiveBeer( beer.Object );
 
 													beer.Verify( x => x.Drink(), Times.Once );
 												}
@@ -3680,7 +3680,7 @@
 												[Test]
 												public void ReceiveBeerWillDrinkIt() {
 													var beer = new Mock<IBeer>();
-													customer.ReceiveBeer( beer.Object );
+													client.ReceiveBeer( beer.Object );
 
 													beer.Verify( x => x.Drink(), Times.Once );
 												}
@@ -3775,7 +3775,7 @@
 												[Test]
 												public void ReceiveBeerWillDrinkIt() {
 													var beer = new Mock<IBeer>();
-													customer.ReceiveBeer( beer.Object );
+													client.ReceiveBeer( beer.Object );
 
 													beer.Verify( x => x.Drink(), Times.Once );
 												}

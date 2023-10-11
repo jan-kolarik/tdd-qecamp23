@@ -15,6 +15,7 @@
 
 		<!-- Custom stylesheets -->
         <link rel="stylesheet" href="custom/code.css">
+		<link rel="stylesheet" href="custom/device-diagram.css">
 		<link rel="stylesheet" href="custom/image-table.css">
 
 		<style>
@@ -4057,23 +4058,48 @@
 					</section>
 					<section data-auto-animate>
 						<h4>Device driver</h4>
-						<object data-id="device-diagram" type="image/svg+xml" data="img/device-diagram-full.svg" width="400px"></object>
+						<object data-id="device-diagram1" type="image/svg+xml" data="img/device-diagram-full.svg" height="570px"></object>
+					</section>
+					<section data-auto-animate>
+						<h4>Device driver</h4>
+						<div style="display: flex; align-items: center;">
+							<div style="flex: 50%;">
+								<object data-id="device-diagram1" type="image/svg+xml" data="img/device-diagram-full.svg" height="570px"></object>		
+							</div>
+							<div style="flex: 50%;">
+								<ul class="device-diagram-bullets">
+									<li>Simplified class diagram</li>
+									<li><div style="color: #FFF2CC; -webkit-text-stroke: 1px #D6B656;">Business logic</div></li>
+									<li><div style="color: #DAE8FC; -webkit-text-stroke: 1px #6C8EBF;">API parts</div></li>
+								</ul>
+							</div>
+						</div>
 					</section>
 					<section data-auto-animate>
 						<h4>Device driver: Sending command</h4>
-						<object data-id="device-diagram" type="image/svg+xml" data="img/device-diagram-control-api.svg" width="400px"></object>
+						<object data-id="device-diagram2" type="image/svg+xml" data="img/device-diagram-control-api.svg" height="570px"></object>
 					</section>
 					<section data-auto-animate>
 						<h4>Device driver: Service intervention</h4>
-						<object data-id="device-diagram" type="image/svg+xml" data="img/device-diagram-service-api.svg" width="400px"></object>
+						<object data-id="device-diagram2" type="image/svg+xml" data="img/device-diagram-service-api.svg" height="570px"></object>
 					</section>
 					<section data-auto-animate>
 						<h4>Device driver: Reading values</h4>
-						<object data-id="device-diagram" type="image/svg+xml" data="img/device-diagram-values-input.svg" width="400px"></object>
+						<object data-id="device-diagram2" type="image/svg+xml" data="img/device-diagram-values-input.svg" height="570px"></object>
 					</section>
 					<section data-auto-animate>
 						<h4>Device driver: State change</h4>
-						<object data-id="device-diagram" type="image/svg+xml" data="img/device-diagram-state-change.svg" width="400px"></object>
+						<object data-id="device-diagram3" type="image/svg+xml" data="img/device-diagram-state-change.svg" height="570px"></object>
+					</section>
+					<section data-auto-animate>
+						<h4>Device driver: Summary</h4>
+						<ul class="device-diagram-bullets">
+							<li>Written in C++</li>
+							<li>3 projects: API, BL, Tests</li>
+							<li>Complete BL coverage by TDD</li>
+							<li>Almost 100 abstract classes</li>
+							<li>More than 1300 test cases</li>
+						</ul>
 					</section>
 				</section>
 				<section data-auto-animate>
